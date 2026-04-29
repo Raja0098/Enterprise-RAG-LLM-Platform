@@ -36,7 +36,8 @@ The platform ensures answers are **strictly derived from provided data**, making
 
 ## 🏗️ System Architecture
 
-```mermaid
+mermaid
+```
 flowchart TD
 
 A[User Query] --> B[Intent Classification]
