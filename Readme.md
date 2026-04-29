@@ -39,6 +39,8 @@ The platform ensures answers are **strictly derived from provided data**, making
 User Query
    ↓
 Intent Classification
+
+
    ↓
 Query Expansion (LLM)
    ↓
