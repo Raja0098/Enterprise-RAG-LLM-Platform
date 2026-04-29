@@ -1,0 +1,6 @@
+```json
+{
+  "page": 15,
+  "text": "RESERVATIONS AND CONCESSIONS IN APPOINTMENTS\n\nFor Other Backward Classes — 27% (54 points)\n 4  26  49  71   93  115  138  161  182\n 8  30  52  75   97  119  141  163  186\n12  34  56  78  100  123  145  167  189\n16  38  60  82  104  126  149  171  193\n19  42  63  86  109  130  152  176  197\n23  45  67  89  112  134  156  178  200\n\nFor Economically Weaker Sections — 10% (20 points)\n10  50   90  131  170\n21  62   98  142  181\n31  70  110  150  190\n43  83  122  164  196\n\nThe remaining 81 points will be unreserved.\n\n(ii) Direct Recruitment on All India basis otherwise than by Open\nCompetition – 120-point Roster. (Annexure – IV to O.M.)\n\nOut of the specified 120 points, the reserved points will be—\n\nFor Scheduled Castes — 16.66 % (20 points)\n 7  31  56  79  103\n13  37  61  85  110\n19  43  67  91  115\n25  49  73  97  119\n\nFor Scheduled Tribes — 7.5 % (9 points)\n14  40  68   95  118\n27  54  80  107     \n\nFor Other Backward Classes — 25.84 % (31 points)\n 4  24  44  63  82  101  120\n 8  28  47  66  86  105     \n12  32  51  70  90  109     \n16  35  55  74  94  113     \n20  39  59  78  98  117     "
+}
+```

@@ -1,0 +1,19 @@
+pdf2image
+pymilvus
+google-genai
+fastapi
+uvicorn
+pillow
+numpy
+tqdm
+pymupdf
+python-dotenv
+psycopg2-binary
+langchain-text-splitters
+httpx
+python-multipart
+python-jose[cryptography]
+
+# 🔥 FIXED AUTH DEPENDENCIES
+passlib[bcrypt]==1.7.4
+bcrypt==3.2.0
