@@ -39,27 +39,29 @@ The platform ensures answers are **strictly derived from provided data**, making
 ```mermaid
 flowchart TD
 
-A[User Query] --> B[Intent Classification]
+A[User Query] --> B{Intent Classification}
 
-B --> C[Query Expansion (LLM + History)]
+B -->|Domain Query| C[Query Expansion LLM History]
+B -->|Out of Scope| Z[Reject or Safe Response]
 
 C --> D[Embedding Generation]
 
-D --> E[Vector Search (Milvus)]
+D --> E[(Milvus Vector DB)]
 
-E --> F[Reranking (CrossEncoder)]
+E --> F[Top K Documents]
 
-F --> G[Context Construction]
+F --> G[Reranking CrossEncoder]
 
-G --> H[LLM Response Generation]
+G --> H[Context Builder]
 
-H --> I[Final Answer]
+H --> I[LLM Gemini]
 
-I --> J[Conversation Memory (PostgreSQL)]
+I --> J[Answer Summary Followups]
 
-J --> C
+J --> K[(PostgreSQL Memory)]
+
+K --> C
 ```
----
 
 ## 🧪 Tech Stack
 
