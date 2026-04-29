@@ -36,28 +36,30 @@ The platform ensures answers are **strictly derived from provided data**, making
 
 ## 🏗️ System Architecture
 
-User Query
-   ↓
-Intent Classification
+```mermaid
+flowchart TD
 
+A[User Query] --> B[Intent Classification]
 
-   ↓
-Query Expansion (LLM)
-   ↓
-Embedding Generation
-   ↓
-Vector Search (Milvus)
-   ↓
-Reranking (CrossEncoder)
-   ↓
-Context Construction
-   ↓
-LLM Response Generation
-   ↓
-Conversation Memory (Postgres)
+B --> C[Query Expansion (LLM + History)]
 
+C --> D[Embedding Generation]
 
+D --> E[Vector Search (Milvus)]
 
+E --> F[Reranking (CrossEncoder)]
+
+F --> G[Context Construction]
+
+G --> H[LLM Response Generation]
+
+H --> I[Final Answer]
+
+I --> J[Conversation Memory (PostgreSQL)]
+
+J --> C
+
+```
 ---
 
 ## 🧪 Tech Stack
