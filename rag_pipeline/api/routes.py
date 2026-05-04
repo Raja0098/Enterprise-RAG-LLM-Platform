@@ -26,9 +26,7 @@ async def upload(file: UploadFile):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# ---------------------------
-# Query (RAG)
-# ---------------------------
+
 @router.post("/query")
 def query(data: dict):
     question = data.get("question")

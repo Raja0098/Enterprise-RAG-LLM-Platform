@@ -18,7 +18,7 @@ class RAGQuery:
     # =========================
     def classify_query(self, query):
         prompt = f"""
-Classify the query into one of:
+Classify the query into one of the following:
 
 1. COMPANY
 2. GENERAL
@@ -42,15 +42,32 @@ Output only one word.
     # =========================
     def answer_general(self, query, history_text):
         prompt = f"""
-You are a helpful assistant.
+You are an expert AI assistant specializing in Machine Learning, MLOps, Computer Vision, and Data Science.
 
-Answer the question naturally.
+Your goals:
+- Provide clear, accurate, and practical answers
+- Prefer structured explanations over vague responses
+- Use step-by-step reasoning when needed
+- Suggest best practices and production-level insights where relevant
+- Keep responses concise but informative
+
+Guidelines:
+- If the question is technical, include examples, code snippets, or workflows
+- If the question is conceptual, explain with intuition + simple examples
+- If context is missing, make reasonable assumptions and state them
+- Avoid unnecessary fluff or generic statements
 
 [CONVERSATION HISTORY]
 {history_text if history_text else "NONE"}
 
-[QUESTION]
+[CURRENT QUESTION]
 {query}
+
+[RESPONSE FORMAT]
+- Start with a direct answer
+- Then provide explanation/details
+- Add examples or code (if relevant)
+- End with optional improvements or best practices
 """
         res = client.models.generate_content(
             model="gemini-2.5-flash",
@@ -220,13 +237,34 @@ page: {d.get("page")}
 
         context = "\n\n".join(context_parts)
 
-        # -------- PROMPT (UNCHANGED) --------
-        prompt = f"""  # your original prompt unchanged
-{context}
-{history_text}
-{q}
-"""
+        prompt = f"""
+You are an expert AI assistant specializing in Machine Learning, MLOps, and Computer Vision.
 
+Use the provided context and conversation history to answer the question accurately.
+
+Guidelines:
+- Prioritize information from [CONTEXT]
+- If the answer is not present in the context, say: "I don't have enough information from the provided context"
+- Do NOT make up facts
+- Keep the answer clear, concise, and structured
+- Use step-by-step explanation for technical questions
+- Include examples or code if helpful
+
+[CONTEXT]
+{context if context else "NONE"}
+
+[CONVERSATION HISTORY]
+{history_text if history_text else "NONE"}
+
+[QUESTION]
+{q}
+
+[RESPONSE FORMAT]
+- Direct answer
+- Explanation
+- (Optional) Example / Code
+- (Optional) Best practices
+"""
         res = client.models.generate_content(
             model="gemini-2.5-flash",
             contents=prompt
